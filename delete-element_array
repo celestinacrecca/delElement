@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<conio.h>
+
+delElement(int *arr, int num, int pos){
+    int i;
+    //to update the index
+    for(i = pos-1; i < num - 1; i++){
+        arr[i] = arr[i+1];
+    }
+}
+    //create disp()function to print the input array elements
+    disp( int arr[], int num){
+        int i;
+            //to print the resultant array
+            for(i = 0; i < num; i++){
+                printf("arr[%d] = %d\t", i, arr[i]);
+    }
+}
+int main(){
+    //declaration of the arr
+    int arr[100];
+    int i, num, pos, result;
+
+    printf("Enter the number of elements in the array: \t");
+    scanf("%d", &num);
+
+    printf("Enter the %d elements of the array: \n", num);
+
+        for(i = 0; i < num; i++){
+            printf("arr[%d] =\t", i);
+            scanf("%d", &arr[i]);
+        }
+
+        printf("Enter the position of the element to be deleted: \t");
+        scanf("%d", &pos);
+
+        //defined pos is less than equal to size of array (num) and larger than 0
+        if(pos <= num && pos > 0){
+            printf("Original Array: \n");
+            //disp()function print the array
+            disp(arr, num);
+            delElement(arr, num, pos);
+            printf("\nUpdated Array: \n");
+            //to print the updated array
+            disp(arr, num-1);
+        }
+        return 0;
+}
